@@ -9,100 +9,114 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
     />
-    
+
     <style>
-     body {
-            padding: 10px 50px;
-            background-image: url(tree.jpg);
-            background-size: 110%;
-        }
+      body {
+        padding: 10px 50px;
+        background-image: url(tree.jpg);
+        background-size: 110%;
+      }
 
-        .container{
-            background-color: cornsilk ;
-            width: 500px;
-            margin-left: 300px;
-            padding-left: 55px;
-            padding-top: 30px;
-            padding-bottom: 30px;
-            border-radius:16px;
-        }
+      .container {
+        background-color: cornsilk;
+        width: 500px;
+        margin-left: 300px;
+        padding-left: 55px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        border-radius: 16px;
+      }
 
-        .formdesign {
-            font-size: 20px;
+      .formdesign {
+        font-size: 20px;
+      }
 
-        }
+      .formdesign input {
+        width: 80%;
+        padding: 12px 20px;
+        border: 1px solid darkblue;
+        margin: 14px;
+        border-radius: 4px;
+        font-size: 15px;
+      }
 
-        .formdesign input {
-            width: 80%;
-            padding: 12px 20px;
-            border: 1px solid darkblue;
-            margin: 14px;
-            border-radius: 4px;
-            font-size: 15px;
-        }
+      .formerror {
+        color: red;
+      }
 
-        .formerror {
-            color: red;
-        }
+      .button {
+        border-radius: 9px;
+        width: 100px;
+        height: 50px;
+        font-size: 25px;
+        margin: 22px 20px;
+      }
 
-        .but {
-            border-radius: 9px;
-            width: 100px;
-            height: 50px;
-            font-size: 25px;
-            margin: 22px 20px;
-        }
-
-        p{
-    text-align: center;
-    padding-top: 15px;
-    font-size: 15px;
-     }
-    .para-2{
-    text-align: center;
-    color:black;
-    font-size: 20px;
-   }
-   .para-2 a{
-    color:dodgerblue;
-    }
+      p {
+        text-align: center;
+        padding-top: 15px;
+        font-size: 15px;
+      }
+      .para-2 {
+        text-align: center;
+        color: black;
+        font-size: 20px;
+      }
+      .para-2 a {
+        color: dodgerblue;
+      }
     </style>
   </head>
   <body>
-      <div class="container">
-    <form aciton ="/myaction.php" name="myForm" onsubmit="return validateForm()" method="post">
+    <div class="container">
+      <form
+        aciton="/myaction.php"
+        name="myForm"
+        onsubmit="return validateForm()"
+        method="post"
+      >
         <div class="formdesign" id="name">
-            Name: <input type="text" name="firstname" required><b><span class="formerror"> </span></b>
+          Name: <input type="text" name="firstname" required /><b
+            ><span class="formerror"> </span
+          ></b>
         </div>
 
         <div class="formdesign" id="email">
-            Email: <input type="email" name="pemail" required><b><span class="formerror"> </span></b>
+          Email: <input type="email" name="pemail" required /><b
+            ><span class="formerror"> </span
+          ></b>
         </div>
 
         <div class="formdesign" id="phone">
-            Phone: <input type="phone" name="enterphone" required><b><span class="formerror"></span></b>
+          Phone: <input type="phone" name="enterphone" required /><b
+            ><span class="formerror"></span
+          ></b>
         </div>
 
         <div class="formdesign" id="pass">
-            Password: <input type="password" name="firstpass" required><b><span class="formerror"</span></b>
+          Password: <input type="password" name="firstpass" required /><b
+            ><span class="formerror"></span
+          ></b>
         </div>
 
         <div class="formdesign" id="cpass">
-            Confirm Password: <input type="password" name="confirmpass" required><b><span class="formerror"></span></b>
+          Confirm Password:
+          <input type="password" name="confirmpass" required /><b
+            ><span class="formerror"></span
+          ></b>
         </div>
 
-        <input class="but" type="submit" value="Submit">
+        <input class="button" type="submit" value="Submit" />
+      </form>
 
-    </form>
-
-
-    <p>By clicking the Sign Up button, you agree to aur <br> 
-        <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a> </p> 
-        <p class="para-2">Already have an account? <a href="login.html">Login Here</a></p>
+      <p>
+        By clicking the Sign Up button, you agree to our <br />
+        <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+      </p>
+      <p class="para-2">
+        Already have an account? <a href="login.html">Login Here</a>
+      </p>
     </div>
-
-
-
   </body>
   <script>
     function clearErrors() {
@@ -116,14 +130,13 @@
       element = document.getElementById(id);
       element.getElementsByClassName("formerror")[0].innerHTML = error;
     }
-//form validation
+    //form validation
     function validateForm() {
       var returnval = true;
       clearErrors();
-   
 
       //username validation
-      
+
       var name = document.forms["myForm"]["firstname"].value;
       if (name.length < 5) {
         seterror("name", "*Length of name is too short");
@@ -136,8 +149,8 @@
         seterror("name", "*Length of name cannot be zero!");
         returnval = false;
       }
-   
-      //email address validation 
+
+      //email address validation
       var email = document.forms["myForm"]["pemail"].value;
       if (email.length > 15) {
         seterror("email", "*Email length is too long");
@@ -151,10 +164,9 @@
         seterror("phone", "*Phone number should be of 10 digits!");
         returnval = false;
       }
-     //user password validation
+      //user password validation
       var password = document.forms["myForm"]["firstpass"].value;
       if (password.length < 6) {
-        
         seterror("pass", "*Password should be atleast 6 characters long!");
         returnval = false;
       }
